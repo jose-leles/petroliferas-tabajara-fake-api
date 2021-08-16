@@ -27,7 +27,12 @@ router.post('/', function(req, res) {
 
 router.put('/', function(req, res) {
     let pedidos = repo.getAll();
-    repo.addPedido({codigo: pedidos[pedidos.length -1].codigo + 1, status:"pending", ...req.body});
+    repo.addPedido({
+        codigo: pedidos[pedidos.length -1].codigo + 1,
+        empresaImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy9QDJhzwiQOWmxnU88NomgAKPJ2vF4min-JP0eJhJ1HhRGoUWFi99tJ4yH6ujbAjEMsk&usqp=CAU",
+        status:"pending",
+        ...req.body
+    });
     res.status(200);
     res.end();
 
