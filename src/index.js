@@ -8,4 +8,4 @@ const pedidoController = require('./controllers/pedidoController');
 
 app.use('/pedido', pedidoController)
 
-app.listen(80);
+app.listen(process.env.PORT || 3000);
