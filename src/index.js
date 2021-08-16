@@ -8,4 +8,4 @@ const pedidoController = require('./controllers/pedidoController');
 
 app.use('/pedido', pedidoController)
 
-app.listen(3030);
+app.listen(80);
