@@ -27,7 +27,7 @@ router.post('/', function(req, res) {
 
 router.put('/', function(req, res) {
     let pedidos = repo.getAll();
-    repo.addPedido({codigo: pedidos[pedidos.length -1].codigo + 1, ...req.body});
+    repo.addPedido({codigo: pedidos[pedidos.length -1].codigo + 1, status:"pending", ...req.body});
     res.status(200);
     res.end();
 
