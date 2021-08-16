@@ -11,24 +11,33 @@ var repo = require("../repo/pedido.js");
 //     next();
 // });
 
-// 
+ 
 router.get('/', function(req, res) {
     res.json(repo.getAll());
+    
 });
+
 // define the about route
 router.post('/', function(req, res) {
     repo.editPedido(req.body);
     res.status(200);
+    res.end();
+
 });
 
 router.put('/', function(req, res) {
-    repo.addPedido(req.body);
+    let pedidos = repo.getAll();
+    repo.addPedido({codigo: pedidos[pedidos.length -1].codigo + 1, ...req.body});
     res.status(200);
+    res.end();
+
 });
 
 router.delete('/:codigo', function(req, res) {
     repo.removePedido(req.params.codigo);
     res.status(200);
+    res.end();
+
 });
 
 module.exports = router;

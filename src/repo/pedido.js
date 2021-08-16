@@ -15,7 +15,7 @@ const pedidos = [
 
 module.exports = {
     getAll: () => pedidos,
-    addPedido: (pedido) => pedidos.add(pedido),
+    addPedido: (pedido) => pedidos.push(pedido),
     editPedido: (pedido) => {
         let index = pedidos.findIndex((p) => p.codigo == pedido.codigo)
         if(index != -1){
